@@ -1,0 +1,55 @@
+name: Update index
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  FLATPAK_BRANCH: devtest
+  DESTINATION_GITHUB_USERNAME: grillo-delmal 
+  DESTINATION_REPOSITORY_NAME: nijilive-flatpak-devtest
+
+jobs:
+
+  update-index:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Update static index
+      env:
+        REGISTRY_AUTH_FILE: /tmp/auth.json
+      run: |
+        export FILES="./repos/*"
+        git clone -b gh-pages https://github.com/$DESTINATION_GITHUB_USERNAME/$DESTINATION_REPOSITORY_NAME.git ./gh-pages
+        echo '{"Registry": "https://ghcr.io/","Results": []}' > ./gh-pages/index/static
+        for f in $FILES ; do
+          echo "Processing $f file..."
+          cat ./gh-pages/index/static | jq --argjson container "$(cat $f)" '.Results += [ $container ]' > ./gh-pages/index/static
+        done
+
+    - name: Check for changes
+      id: is-updated 
+      run: |
+        set -x
+        git -C ./gh-pages status -s -uno
+        cat ./gh-pages/index/static
+        # Don't let the file be empty
+        [ ! -s ./gh-pages/index/static ] || [ -z "$(git -C ./gh-pages status -s -uno)" ] || echo "updated=true" >> $GITHUB_OUTPUT
+
+    - name: Push to repository
+      if: steps.is-updated.outputs.updated
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.PAT }}
+      with:
+        source-directory: './gh-pages'
+        destination-github-username: ${{ env.DESTINATION_GITHUB_USERNAME }}
+        destination-repository-name: ${{ env.DESTINATION_REPOSITORY_NAME }}
+        user-email: github-actions[bot]@users.noreply.github.com
+        commit-message: Update index
+        target-branch: gh-pages
