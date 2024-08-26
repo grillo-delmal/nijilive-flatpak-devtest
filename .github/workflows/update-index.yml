@@ -6,11 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  FLATPAK_BRANCH: devtest
-  DESTINATION_GITHUB_USERNAME: grillo-delmal 
-  DESTINATION_REPOSITORY_NAME: nijilive-flatpak-devtest
-
 jobs:
 
   update-index:
@@ -18,14 +13,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        path: main
+
+    - uses: actions/checkout@v4
+      with:
+        ref: 'gh-pages'
+        path: 'gh-pages'
+        token: ${{ secrets.PAT }}
 
     - name: Update static index
       env:
         REGISTRY_AUTH_FILE: /tmp/auth.json
       run: |
-        export FILES="./repos/*"
-        git clone -b gh-pages https://github.com/$DESTINATION_GITHUB_USERNAME/$DESTINATION_REPOSITORY_NAME.git ./gh-pages
+        export FILES="./main/repos/*"
         echo '{"Registry": "https://ghcr.io/","Results": []}' > ./gh-pages/index/static
         for f in $FILES ; do
           echo "Processing $f file..."
@@ -43,13 +45,8 @@ jobs:
 
     - name: Push to repository
       if: steps.is-updated.outputs.updated
-      uses: cpina/github-action-push-to-another-repository@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.PAT }}
-      with:
-        source-directory: './gh-pages'
-        destination-github-username: ${{ env.DESTINATION_GITHUB_USERNAME }}
-        destination-repository-name: ${{ env.DESTINATION_REPOSITORY_NAME }}
-        user-email: github-actions[bot]@users.noreply.github.com
-        commit-message: Update index
-        target-branch: gh-pages
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git -C gh-pages commit -am "Update index"
+        git -C gh-pages push
