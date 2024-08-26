@@ -1,0 +1,36 @@
+{
+  "Name": "grillo-delmal/nijigenerate-nightly-debug",
+  "Images": [
+    {
+      "Name": "ghcr.io/grillo-delmal/nijigenerate-nightly-debug",
+      "Digest": "sha256:50abce3dd88e9a629f21aa32663a4669c610479d1bf863d924b12236df540b66",
+      "RepoTags": [
+        "devtest"
+      ],
+      "Created": "2024-08-26T16:08:38Z",
+      "DockerVersion": "",
+      "Labels": {
+        "org.flatpak.body": "Name: io.github.grillo_delmal.nijigenerate.Debug\nArch: x86_64\nBranch: devtest\nBuilt with: Flatpak 1.15.8\n",
+        "org.flatpak.commit": "02d4cfbdcbbeb91fb9f54a33c4e08300f74e0fff7844f5272ececcab7fa33e6f",
+        "org.flatpak.commit-metadata.ostree.collection-binding": "AABz",
+        "org.flatpak.commit-metadata.ostree.ref-binding": "cnVudGltZS9pby5naXRodWIuZ3JpbGxvX2RlbG1hbC5uaWppZ2VuZXJhdGUuRGVidWcveDg2XzY0L2RldnRlc3QAQgBhcw==",
+        "org.flatpak.commit-metadata.xa.download-size": "AAAAAAB1fO4AdA==",
+        "org.flatpak.commit-metadata.xa.installed-size": "AAAAAACUsgAAdA==",
+        "org.flatpak.commit-metadata.xa.metadata": "W1J1bnRpbWVdCm5hbWU9aW8uZ2l0aHViLmdyaWxsb19kZWxtYWwubmlqaWdlbmVyYXRlLkRlYnVnCgpbRXh0ZW5zaW9uT2ZdCnJlZj1hcHAvaW8uZ2l0aHViLmdyaWxsb19kZWxtYWwubmlqaWdlbmVyYXRlL3g4Nl82NC9kZXZ0ZXN0CgAAcw==",
+        "org.flatpak.commit-metadata.xa.ref": "cnVudGltZS9pby5naXRodWIuZ3JpbGxvX2RlbG1hbC5uaWppZ2VuZXJhdGUuRGVidWcveDg2XzY0L2RldnRlc3QAAHM=",
+        "org.flatpak.download-size": "7652728",
+        "org.flatpak.installed-size": "9744896",
+        "org.flatpak.metadata": "[Runtime]\nname=io.github.grillo_delmal.nijigenerate.Debug\n\n[ExtensionOf]\nref=app/io.github.grillo_delmal.nijigenerate/x86_64/devtest\n",
+        "org.flatpak.ref": "runtime/io.github.grillo_delmal.nijigenerate.Debug/x86_64/devtest",
+        "org.flatpak.subject": "Export io.github.grillo_delmal.nijigenerate.Debug",
+        "org.flatpak.timestamp": "1724688518"
+      },
+      "Architecture": "amd64",
+      "Os": "linux",
+      "Layers": [
+        "sha256:8378a0cf0d2cfe1a319e63ab8401c68aacd9db1c6fc2b42c55bf6cae26f04d2d"
+      ],
+      "Env": null
+    }
+  ]
+}
