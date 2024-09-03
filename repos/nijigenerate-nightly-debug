@@ -3,32 +3,32 @@
   "Images": [
     {
       "Name": "ghcr.io/grillo-delmal/nijigenerate-nightly-debug",
-      "Digest": "sha256:f5f90b394bd1aedb285e2ef9241a6a6b28218b080735606f4c46131207e86f57",
+      "Digest": "sha256:a7c0c9885c50f6735eda64ac20a727b45c51e34e7ff8efb7394c0cca81b397e7",
       "RepoTags": [
         "devtest"
       ],
-      "Created": "2024-09-03T05:47:42Z",
+      "Created": "2024-09-03T05:55:35Z",
       "DockerVersion": "",
       "Labels": {
         "org.flatpak.body": "Name: io.github.grillo_delmal.nijigenerate.Debug\nArch: x86_64\nBranch: devtest\nBuilt with: Flatpak 1.15.8\n",
-        "org.flatpak.commit": "c27f0b25b81ae6d4f6bae1c5c64df1cc15c976d1d541e315dbaa83cd38b513ba",
+        "org.flatpak.commit": "7bfc98fa24c0329e007dfe944d67006e3f2c09536b5603e70220bdfa45c58a63",
         "org.flatpak.commit-metadata.ostree.collection-binding": "AABz",
         "org.flatpak.commit-metadata.ostree.ref-binding": "cnVudGltZS9pby5naXRodWIuZ3JpbGxvX2RlbG1hbC5uaWppZ2VuZXJhdGUuRGVidWcveDg2XzY0L2RldnRlc3QAQgBhcw==",
-        "org.flatpak.commit-metadata.xa.download-size": "AAAAAAB1vVcAdA==",
-        "org.flatpak.commit-metadata.xa.installed-size": "AAAAAACU/gAAdA==",
+        "org.flatpak.commit-metadata.xa.download-size": "AAAAAAB1voIAdA==",
+        "org.flatpak.commit-metadata.xa.installed-size": "AAAAAACVAAAAdA==",
         "org.flatpak.commit-metadata.xa.metadata": "W1J1bnRpbWVdCm5hbWU9aW8uZ2l0aHViLmdyaWxsb19kZWxtYWwubmlqaWdlbmVyYXRlLkRlYnVnCgpbRXh0ZW5zaW9uT2ZdCnJlZj1hcHAvaW8uZ2l0aHViLmdyaWxsb19kZWxtYWwubmlqaWdlbmVyYXRlL3g4Nl82NC9kZXZ0ZXN0CgAAcw==",
         "org.flatpak.commit-metadata.xa.ref": "cnVudGltZS9pby5naXRodWIuZ3JpbGxvX2RlbG1hbC5uaWppZ2VuZXJhdGUuRGVidWcveDg2XzY0L2RldnRlc3QAAHM=",
-        "org.flatpak.download-size": "7669710",
-        "org.flatpak.installed-size": "9764352",
+        "org.flatpak.download-size": "7670057",
+        "org.flatpak.installed-size": "9764864",
         "org.flatpak.metadata": "[Runtime]\nname=io.github.grillo_delmal.nijigenerate.Debug\n\n[ExtensionOf]\nref=app/io.github.grillo_delmal.nijigenerate/x86_64/devtest\n",
         "org.flatpak.ref": "runtime/io.github.grillo_delmal.nijigenerate.Debug/x86_64/devtest",
         "org.flatpak.subject": "Export io.github.grillo_delmal.nijigenerate.Debug",
-        "org.flatpak.timestamp": "1725342462"
+        "org.flatpak.timestamp": "1725342935"
       },
       "Architecture": "amd64",
       "Os": "linux",
       "Layers": [
-        "sha256:e6ae1c4a49cecadfafea18f06a55b2e57ef70be5a12f8eb4746dc45b64dade80"
+        "sha256:f4b010b24266e312b7cc726e70fc2e44fbf44d4b662a78172c26d0923c0d57ff"
       ],
       "Env": null
     }
